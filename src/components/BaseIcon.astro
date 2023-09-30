@@ -1,0 +1,14 @@
+---
+import Icon from "astro-icon";
+import phIcons from "@iconify-json/ph/icons.json";
+
+interface Props {
+  name: `ph:${keyof (typeof phIcons)["icons"]}`;
+  size?: string;
+  class?: string;
+}
+
+const { name, size, ...props } = Astro.props;
+---
+
+<Icon class={[size ? size : "h-4 w-4", props.class].join(' ')} name={name} />

@@ -1,0 +1,19 @@
+---
+import Container from "../Container.astro";
+import DarkThemeButton from "../DarkThemeButton.astro";
+import NavBar from "./NavBar.astro";
+---
+
+<header class="fixed z-10 w-full border-b border-b-accent bg-[inherit]">
+  <Container>
+    <div class="flex flex-wrap items-center gap-6 px-0 py-2 md:gap-12">
+      <button class="h-8 w-8 md:hidden">
+        <div class="h-8 w-8 i-ph-burger"></div>
+      </button>
+      <a href="/" class="text-2xl font-bold">Disquette.fr</a>
+      <NavBar />
+
+      <DarkThemeButton />
+    </div>
+  </Container>
+</header>

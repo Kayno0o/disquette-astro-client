@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class="group relative w-fit font-bold text-accent-light">
+  <slot />
+  <div
+    class="absolute bottom-0 left-0 right-0 h-[0.1px] w-full bg-accent-light transition-all duration-300 group-hover:-bottom-1"
+  >
+  </div>
+</a>

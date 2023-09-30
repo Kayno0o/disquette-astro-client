@@ -1,0 +1,35 @@
+---
+import BaseIcon from "../BaseIcon.astro";
+interface Props {
+  type?: "button" | "submit" | "reset";
+  loading?: boolean;
+  disabled?: boolean;
+  class?: string;
+  id?: string;
+  noPadding?: boolean;
+}
+
+const { type, loading, disabled, id, noPadding, ...props } = Astro.props;
+---
+
+<button
+  id={id}
+  class={[
+    "relative w-fit cursor-pointer rounded-full bg-white font-bold text-black transition-colors duration-300",
+    loading || disabled ? "cursor-not-allowed" : "hover:bg-accent-light",
+    !noPadding && "px-6 py-1",
+    loading && 'child:opacity-0',
+    props.class,
+  ].join(" ")}
+  type={type}
+  disabled={loading || disabled}
+>
+  <slot />
+  {
+    loading && (
+      <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+        <BaseIcon name="ph:circle-notch-bold" class="animate-spin" />
+      </div>
+    )
+  }
+</button>
